@@ -11,7 +11,22 @@
         <h1>Animal Crossing : Your Museum</h1>
     </header>
     <?php 
-    include 'poissons_card.php';
+    require_once ("../includes/bdd.php");
+    echo '<article>';
+    foreach($poissons as $poisson){
+        echo '<div class="card">
+                    <img class="card-img-top" src="../img/poisson.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">'.$poisson['nom_poisson'].'</h5>
+                    <p class="card-text">'.$poisson['prix_poisson'].' Clochettes <br> 
+                     '.$poisson['periode1_debut_poisson'].' - '.$poisson['periode1_fin_poisson'].' <br> 
+                     '.$poisson['periode2_debut_poisson'].' '.$poisson['periode2_fin_poisson'].' <br> 
+                     '.$poisson['heure1_debut_poisson'].' - '.$poisson['heure1_fin_poisson'].'</p>
+                     '.$poisson['heure2_debut_poisson'].'  '.$poisson['heure2_fin_poisson'].'</p>
+                    
+                    <a href="#" class="btn btn-primary">Donner</a></div></div>';
+    }
+    echo '</article>';
     ?>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

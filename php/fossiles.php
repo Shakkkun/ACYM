@@ -10,8 +10,20 @@
     <header>
         <h1>Animal Crossing : Your Museum</h1>
     </header>
+
     <?php 
-    include 'fossiles_card.php';
+    require_once ("../includes/bdd.php");
+    echo '<article>';
+    foreach($fossiles as $fossile){
+    
+        echo '<div class="card">
+                    <img class="card-img-top" src="../img/fossile.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">'.$fossile['nom_fossile'].'</h5>
+                    <p class="card-text">'.$fossile['prix_fossile'].' Clochettes</p>
+                    <a href="#" class="btn btn-primary">Donner</a></div></div>';
+    }
+    echo '</article>';
     ?>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

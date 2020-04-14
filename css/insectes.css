@@ -36,3 +36,20 @@ div, .card-deck{
     background: #376d4d; 
     border: 1px black solid;
   }
+  
+.card {
+    width: 20%;
+    margin-top: 100px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+article {
+   height: 1500px;
+   display: flex;
+   justify-content: right;
+   flex-wrap: wrap;
+}
+.card img{
+    width: 100%;
+    margin: auto;
+}

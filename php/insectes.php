@@ -11,7 +11,22 @@
         <h1>Animal Crossing : Your Museum</h1>
     </header>
     <?php 
-    include 'insectes_card.php';
+    require_once ("../includes/bdd.php");
+    echo '<article>';
+    foreach($insectes as $insecte){
+        echo '<div class="card">
+                    <img class="card-img-top" src="../img/insecte.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">'.$insecte['nom_insecte'].'</h5>
+                    <p class="card-text">'.$insecte['prix_insecte'].' Clochettes <br> 
+                     '.$insecte['periode1_debut_insecte'].' - '.$insecte['periode1_fin_insecte'].' <br> 
+                     '.$insecte['periode2_debut_insecte'].' '.$insecte['periode2_fin_insecte'].' <br> 
+                     '.$insecte['heure1_debut_insecte'].' - '.$insecte['heure1_fin_insecte'].'</p>
+                     '.$insecte['heure2_debut_insecte'].'  '.$insecte['heure2_fin_insecte'].'</p>
+                    
+                    <a href="#" class="btn btn-primary">Donner</a></div></div>';
+    }
+    echo '</article>';
     ?>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
