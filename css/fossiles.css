@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Fink_Heavy";
+}
+header{
+    padding-top: 2%;
+    background-image:url(../img/background_fossile.jpg);
+    height: 1080px;
+}
+body{
+    background-color: #491e65;
+}
+@font-face{
+    font-family: "Fink_Heavy";
+    src: url(../fonts/finkheavy-webfont.woff) format("woff");
+}
+h1{
+    text-align: center;
+    font-family: Fink_Heavy;
+    font-size: 72px;
+}
+div, .card-deck{
+    margin: 2%;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+     ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+    ::-webkit-scrollbar-thumb:hover {
+    background: #491e65; 
+    border: 1px black solid;
+  }

@@ -1,0 +1,39 @@
+body{
+    background-image:url(../img/background.jpg);
+    margin: 0px;
+    padding: 0px;
+    font-family: "Fink_Heavy";
+}
+@font-face{
+    font-family: "Fink_Heavy";
+    src: url(../fonts/finkheavy-webfont.woff) format("woff");
+}
+h1{
+    text-align: center;
+    font-family: Fink_Heavy;
+    font-size: 72px;
+}
+a{
+    font-size: 72px;
+    color: #8c534c;
+}
+#center{
+    text-align: center;
+    margin-bottom: 18%;
+}
+#gd{
+    display: flex;
+    width: 100%;
+}
+#gauche{
+    justify-content: flex-start;
+    display: flex;
+    margin-left: 6%;
+    width: 100%;
+}
+#droite{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 6%;
+}
