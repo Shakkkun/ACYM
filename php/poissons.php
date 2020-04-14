@@ -18,13 +18,22 @@
                     <img class="card-img-top" src="../img/poisson.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">'.$poisson['nom_poisson'].'</h5>
-                    <p class="card-text">'.$poisson['prix_poisson'].' Clochettes <br> 
-                     '.$poisson['periode1_debut_poisson'].' - '.$poisson['periode1_fin_poisson'].' <br> 
-                     '.$poisson['periode2_debut_poisson'].' '.$poisson['periode2_fin_poisson'].' <br> 
-                     '.$poisson['heure1_debut_poisson'].' - '.$poisson['heure1_fin_poisson'].'</p>
-                     '.$poisson['heure2_debut_poisson'].'  '.$poisson['heure2_fin_poisson'].'</p>
-                    
-                    <a href="#" class="btn btn-primary">Donner</a></div></div>';
+                    <p class="card-text">
+                    Prix : '.$poisson['prix_poisson'].' Clochettes <br> 
+                    Rareté : '.$poisson['rarete_poisson'].'  <br> 
+                    Lieu : '.$poisson['habitat_poisson'].'  <br> <br>
+                    Du : '.$poisson['periode1_debut_poisson'].' - '.$poisson['periode1_fin_poisson'].' <br> 
+                    De : '.$poisson['heure1_debut_poisson'].' - '.$poisson['heure1_fin_poisson'].'</p>';
+                    if (($poisson['periode2_debut_poisson'] != NULL) && ($poisson['periode2_fin_poisson'] != NULL) || ($poisson['heure2_debut_poisson'] != NULL) && ($poisson['heure2_fin_poisson'] != NULL)){
+                        // var_dump($poisson['periode2_debut_poisson']);
+                        // var_dump($poisson['periode2_fin_poisson']);
+                        // var_dump($poisson['heure2_debut_poisson']);
+                        // var_dump($poisson['heure2_fin_poisson']);
+                        echo
+                        'Du : '.$poisson['periode2_debut_poisson'].' - '.$poisson['periode2_fin_poisson'].'  <br>
+                        De : '.$poisson['heure2_debut_poisson'].' - '.$poisson['heure2_fin_poisson'].'</p>';
+                    }
+                    echo '<a href="#" class="btn btn-primary">Donner</a></div></div>';
     }
     echo '</article>';
     ?>

@@ -12,21 +12,36 @@
     </header>
     <?php 
     require_once ("../includes/bdd.php");
+    header('Content-type: text/html; charset=utf-8');
     echo '<article>';
     foreach($insectes as $insecte){
         echo '<div class="card">
-                    <img class="card-img-top" src="../img/insecte.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">'.$insecte['nom_insecte'].'</h5>
-                    <p class="card-text">'.$insecte['prix_insecte'].' Clochettes <br> 
-                     '.$insecte['periode1_debut_insecte'].' - '.$insecte['periode1_fin_insecte'].' <br> 
-                     '.$insecte['periode2_debut_insecte'].' '.$insecte['periode2_fin_insecte'].' <br> 
-                     '.$insecte['heure1_debut_insecte'].' - '.$insecte['heure1_fin_insecte'].'</p>
-                     '.$insecte['heure2_debut_insecte'].'  '.$insecte['heure2_fin_insecte'].'</p>
-                    
-                    <a href="#" class="btn btn-primary">Donner</a></div></div>';
+                <img class="card-img-top" src="../img/insecte.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">'.$insecte['nom_insecte'].'</h5>
+                        <p class="card-text">
+                        
+                        Prix : '.$insecte['prix_insecte'].' Clochettes <br>
+                        
+                        Rareté : '.$insecte['rarete_insecte'].' <br> 
+                        
+                        Lieu : '.$insecte['habitat_insecte'].' <br> <br>
+                        
+                        Du : '.$insecte['periode1_debut_insecte'].' - '.$insecte['periode1_fin_insecte'].' <br>
+                        De : '.$insecte['heure1_debut_insecte'].' - '.$insecte['heure1_fin_insecte'].'</p>';
+                        if (($insecte['periode2_debut_insecte'] != NULL) && ($insecte['periode2_fin_insecte'] != NULL) || ($insecte['heure2_debut_insecte'] != NULL) && ($insecte['heure2_fin_insecte'] != NULL)){
+                            // var_dump($insecte['periode2_debut_insecte']);
+                            // var_dump($insecte['periode2_fin_insecte']);
+                            // var_dump($insecte['heure2_debut_insecte']);
+                            // var_dump($insecte['heure2_fin_insecte']);
+                            echo
+                            'Du : '.$insecte['periode2_debut_insecte'].' - '.$insecte['periode2_fin_insecte'].'  <br>
+                            De : '.$insecte['heure2_debut_insecte'].' - '.$insecte['heure2_fin_insecte'].'</p>';
+                        }
+                        echo '<a href="#" class="btn btn-primary">Donner</a></div></div>';
     }
-    echo '</article>';
+    echo   
+    '</article>';
     ?>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

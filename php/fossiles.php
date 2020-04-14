@@ -15,12 +15,11 @@
     require_once ("../includes/bdd.php");
     echo '<article>';
     foreach($fossiles as $fossile){
-    
         echo '<div class="card">
                     <img class="card-img-top" src="../img/fossile.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">'.$fossile['nom_fossile'].'</h5>
-                    <p class="card-text">'.$fossile['prix_fossile'].' Clochettes</p>
+                    <p class="card-text"> Prix : '.$fossile['prix_fossile'].' Clochettes</p>
                     <a href="#" class="btn btn-primary">Donner</a></div></div>';
     }
     echo '</article>';

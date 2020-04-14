@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  lun. 13 avr. 2020 à 09:55
+-- Généré le :  mar. 14 avr. 2020 à 14:48
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.11
 
@@ -255,6 +255,39 @@ CREATE TABLE `joueur` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `joueur_fossile`
+--
+
+CREATE TABLE `joueur_fossile` (
+  `id_joueur` int(11) NOT NULL,
+  `id_fossile` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `joueur_insecte`
+--
+
+CREATE TABLE `joueur_insecte` (
+  `id_joueur` int(11) NOT NULL,
+  `id_insecte` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `joueur_poisson`
+--
+
+CREATE TABLE `joueur_poisson` (
+  `id_joueur` int(11) NOT NULL,
+  `id_poisson` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `poisson`
 --
 
@@ -389,6 +422,27 @@ ALTER TABLE `joueur`
   ADD PRIMARY KEY (`id_joueur`);
 
 --
+-- Index pour la table `joueur_fossile`
+--
+ALTER TABLE `joueur_fossile`
+  ADD PRIMARY KEY (`id_joueur`,`id_fossile`),
+  ADD KEY `id_fossile` (`id_fossile`);
+
+--
+-- Index pour la table `joueur_insecte`
+--
+ALTER TABLE `joueur_insecte`
+  ADD PRIMARY KEY (`id_joueur`,`id_insecte`),
+  ADD KEY `id_insecte` (`id_insecte`);
+
+--
+-- Index pour la table `joueur_poisson`
+--
+ALTER TABLE `joueur_poisson`
+  ADD PRIMARY KEY (`id_joueur`,`id_poisson`),
+  ADD KEY `id_poisson` (`id_poisson`);
+
+--
 -- Index pour la table `poisson`
 --
 ALTER TABLE `poisson`
@@ -438,6 +492,32 @@ ALTER TABLE `fossile`
 --
 ALTER TABLE `insecte`
   ADD CONSTRAINT `fk_joueur_insecte` FOREIGN KEY (`id_joueur`) REFERENCES `joueur` (`id_joueur`);
+
+--
+-- Contraintes pour la table `joueur`
+--
+ALTER TABLE `joueur`
+  ADD CONSTRAINT `joueur_ibfk_1` FOREIGN KEY (`id_joueur`) REFERENCES `joueur_poisson` (`id_joueur`),
+  ADD CONSTRAINT `joueur_ibfk_2` FOREIGN KEY (`id_joueur`) REFERENCES `joueur_insecte` (`id_joueur`),
+  ADD CONSTRAINT `joueur_ibfk_3` FOREIGN KEY (`id_joueur`) REFERENCES `joueur_fossile` (`id_joueur`);
+
+--
+-- Contraintes pour la table `joueur_fossile`
+--
+ALTER TABLE `joueur_fossile`
+  ADD CONSTRAINT `joueur_fossile_ibfk_1` FOREIGN KEY (`id_fossile`) REFERENCES `fossile` (`id_fossile`);
+
+--
+-- Contraintes pour la table `joueur_insecte`
+--
+ALTER TABLE `joueur_insecte`
+  ADD CONSTRAINT `joueur_insecte_ibfk_1` FOREIGN KEY (`id_insecte`) REFERENCES `insecte` (`id_insecte`);
+
+--
+-- Contraintes pour la table `joueur_poisson`
+--
+ALTER TABLE `joueur_poisson`
+  ADD CONSTRAINT `joueur_poisson_ibfk_1` FOREIGN KEY (`id_poisson`) REFERENCES `poisson` (`id_poisson`);
 
 --
 -- Contraintes pour la table `poisson`
