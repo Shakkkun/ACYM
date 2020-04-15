@@ -37,3 +37,23 @@ a{
     justify-content: flex-end;
     margin-right: 6%;
 }
+@media screen and (max-width:1024px){
+    body{
+    margin: 0px;
+    padding: 0px;
+    }
+    h1{
+    padding-top: 20%;
+    padding-bottom: 20%;
+    font-size: 48px;
+    }
+    a{
+    font-size: 38px;
+    color: black;
+    }
+}
+@media screen and (max-width:1500px){
+    a{
+    color: black;
+    }
+}

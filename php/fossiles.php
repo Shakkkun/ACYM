@@ -9,6 +9,8 @@
 </head>
     <header>
         <h1>Animal Crossing : Your Museum</h1>
+        <a href="../php/accueilon.php"><img border="0" alt="Accueil" src="../img/home.png" width="100" height="100"></a>
+        <h2>Accueil</h2>
     </header>
 
     <?php 
@@ -20,7 +22,7 @@
                 <div class="card-body">
                     <h5 class="card-title">'.$fossile['nom_fossile'].'</h5>
                     <p class="card-text"> Prix : '.$fossile['prix_fossile'].' Clochettes</p>
-                    <a href="#" class="btn btn-primary">Donner</a></div></div>';
+                    <button href="#" id="valider_don" class="btn btn-primary" name="valider_don">Donner</button></div></div>';
     }
     echo '</article>';
     ?>

@@ -9,6 +9,8 @@
 </head>
     <header>
         <h1>Animal Crossing : Your Museum</h1>
+        <a href="../php/accueilon.php"><img border="0" alt="Accueil" src="../img/home.png" width="100" height="100"></a>
+        <h2>Accueil</h2>
     </header>
     <?php 
     require_once ("../includes/bdd.php");
@@ -38,7 +40,7 @@
                             'Du : '.$insecte['periode2_debut_insecte'].' - '.$insecte['periode2_fin_insecte'].'  <br>
                             De : '.$insecte['heure2_debut_insecte'].' - '.$insecte['heure2_fin_insecte'].'</p>';
                         }
-                        echo '<a href="#" class="btn btn-primary">Donner</a></div></div>';
+                        echo '<button id="valider" class="btn btn-primary">Donner</button></div></div>';
     }
     echo   
     '</article>';

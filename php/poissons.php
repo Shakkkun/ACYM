@@ -9,6 +9,8 @@
 </head>
     <header>
         <h1>Animal Crossing : Your Museum</h1>
+        <a href="../php/accueilon.php"><img border="0" alt="Accueil" src="../img/home.png" width="100" height="100"></a>
+        <h2>Accueil</h2>
     </header>
     <?php 
     require_once ("../includes/bdd.php");
@@ -33,7 +35,16 @@
                         'Du : '.$poisson['periode2_debut_poisson'].' - '.$poisson['periode2_fin_poisson'].'  <br>
                         De : '.$poisson['heure2_debut_poisson'].' - '.$poisson['heure2_fin_poisson'].'</p>';
                     }
-                    echo '<a href="#" class="btn btn-primary">Donner</a></div></div>';
+                    echo '<button id="valider" class="btn btn-primary">Donner</button></div></div>';
+    }
+    if (isset($_POST['valider_don'])) {
+        try {
+            $pdo = new PDO("mysql:host=localhost;dbname=acym", "");
+            $pdo->query("INSERT INTO joueur_poisson (id_joueur,id_poisson) 
+                        VALUES (NULL, '".$_POST['valider_don']."') ;");
+        } catch (PDOException $exception) {
+            echo $exception->getMessage();
+        }
     }
     echo '</article>';
     ?>
