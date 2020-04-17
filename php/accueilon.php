@@ -11,6 +11,7 @@
         <h1>Animal Crossing : Your Museum</h1>
     </header>
     <main>
+        <a id=deco href="">Déconnexion</a>
         <div id=center><a href="../php/fossiles.php">Fossiles</a></div>
         <div id=gd>
         <a id=gauche href="../php/insectes.php">Insectes</a>

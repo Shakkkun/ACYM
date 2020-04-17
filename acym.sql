@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mar. 14 avr. 2020 à 14:48
+-- Généré le : jeu. 16 avr. 2020 à 20:13
 -- Version du serveur :  5.7.24
--- Version de PHP :  7.2.11
+-- Version de PHP : 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `acym`
+-- Base de données : `acym2`
 --
 
 -- --------------------------------------------------------
@@ -247,10 +246,21 @@ INSERT INTO `insecte` (`id_insecte`, `nom_insecte`, `periode1_debut_insecte`, `p
 
 CREATE TABLE `joueur` (
   `id_joueur` int(11) NOT NULL,
-  `nom_joueur` varchar(100) NOT NULL,
+  `pseudo` varchar(100) NOT NULL,
   `mdp` varchar(100) NOT NULL,
   `mail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `joueur`
+--
+
+INSERT INTO `joueur` (`id_joueur`, `pseudo`, `mdp`, `mail`) VALUES
+(1, 'test', 'test', 'test@test'),
+(2, 'truc', '123456', 'truc@net'),
+(3, 'machin', '789456', 'machin@fai.net'),
+(4, 'Francku', 'xxx', 'bgdu06@gmail.com'),
+(5, 'bidule', 'azerty', 'bidule@fr');
 
 -- --------------------------------------------------------
 
@@ -469,7 +479,7 @@ ALTER TABLE `insecte`
 -- AUTO_INCREMENT pour la table `joueur`
 --
 ALTER TABLE `joueur`
-  MODIFY `id_joueur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_joueur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `poisson`
@@ -494,30 +504,25 @@ ALTER TABLE `insecte`
   ADD CONSTRAINT `fk_joueur_insecte` FOREIGN KEY (`id_joueur`) REFERENCES `joueur` (`id_joueur`);
 
 --
--- Contraintes pour la table `joueur`
---
-ALTER TABLE `joueur`
-  ADD CONSTRAINT `joueur_ibfk_1` FOREIGN KEY (`id_joueur`) REFERENCES `joueur_poisson` (`id_joueur`),
-  ADD CONSTRAINT `joueur_ibfk_2` FOREIGN KEY (`id_joueur`) REFERENCES `joueur_insecte` (`id_joueur`),
-  ADD CONSTRAINT `joueur_ibfk_3` FOREIGN KEY (`id_joueur`) REFERENCES `joueur_fossile` (`id_joueur`);
-
---
 -- Contraintes pour la table `joueur_fossile`
 --
 ALTER TABLE `joueur_fossile`
-  ADD CONSTRAINT `joueur_fossile_ibfk_1` FOREIGN KEY (`id_fossile`) REFERENCES `fossile` (`id_fossile`);
+  ADD CONSTRAINT `joueur_fossile_ibfk_1` FOREIGN KEY (`id_joueur`) REFERENCES `joueur` (`id_joueur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `joueur_fossile_ibfk_2` FOREIGN KEY (`id_fossile`) REFERENCES `fossile` (`id_fossile`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `joueur_insecte`
 --
 ALTER TABLE `joueur_insecte`
-  ADD CONSTRAINT `joueur_insecte_ibfk_1` FOREIGN KEY (`id_insecte`) REFERENCES `insecte` (`id_insecte`);
+  ADD CONSTRAINT `joueur_insecte_ibfk_1` FOREIGN KEY (`id_joueur`) REFERENCES `joueur` (`id_joueur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `joueur_insecte_ibfk_2` FOREIGN KEY (`id_insecte`) REFERENCES `insecte` (`id_insecte`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `joueur_poisson`
 --
 ALTER TABLE `joueur_poisson`
-  ADD CONSTRAINT `joueur_poisson_ibfk_1` FOREIGN KEY (`id_poisson`) REFERENCES `poisson` (`id_poisson`);
+  ADD CONSTRAINT `joueur_poisson_ibfk_1` FOREIGN KEY (`id_joueur`) REFERENCES `joueur` (`id_joueur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `joueur_poisson_ibfk_2` FOREIGN KEY (`id_poisson`) REFERENCES `poisson` (`id_poisson`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `poisson`
