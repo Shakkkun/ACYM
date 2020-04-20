@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,11 +20,13 @@
     echo '<article>';
     foreach($fossiles as $fossile){
         echo '<div class="card">
-                    <img class="card-img-top" src="../img/fossile.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="'.$fossile['image_fossile'].'" alt="Fossile">
                 <div class="card-body">
                     <h5 class="card-title">'.$fossile['nom_fossile'].'</h5>
                     <p class="card-text"> Prix : '.$fossile['prix_fossile'].' Clochettes</p>
-                    <button href="#" id="valider_don" class="btn btn-primary" name="valider_don">Donner</button></div></div>';
+                    <form action="donner_fossile.php" method="post">
+                    <input type="hidden" name="id_fossile" id="id_fossile" value="'.$fossile['id_fossile'].'">
+                    <input type="submit" class="btn btn-primary" id="donner" name="donner" value="Donner"></form></div></div>';
     }
     echo '</article>';
     ?>

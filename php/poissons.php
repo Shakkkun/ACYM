@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,25 +19,27 @@
     echo '<article>';
     foreach($poissons as $poisson){
         echo '<div class="card">
-                    <img class="card-img-top" src="../img/poisson.png" alt="Card image cap">
+                    <img class="card-img-top" src="'.$poisson['image_poisson'].'" alt="Poisson">
                 <div class="card-body">
                     <h5 class="card-title">'.$poisson['nom_poisson'].'</h5>
                     <p class="card-text">
                     Prix : '.$poisson['prix_poisson'].' Clochettes <br> 
                     Rareté : '.$poisson['rarete_poisson'].'  <br> 
                     Lieu : '.$poisson['habitat_poisson'].'  <br> <br>
-                    Du : '.$poisson['periode1_debut_poisson'].' - '.$poisson['periode1_fin_poisson'].' <br> 
-                    De : '.$poisson['heure1_debut_poisson'].' - '.$poisson['heure1_fin_poisson'].'</p>';
+                    Du '.$poisson['periode1_debut_poisson'].' au '.$poisson['periode1_fin_poisson'].' <br> 
+                    De '.$poisson['heure1_debut_poisson'].' à '.$poisson['heure1_fin_poisson'].'</p>';
                     if (($poisson['periode2_debut_poisson'] != NULL) && ($poisson['periode2_fin_poisson'] != NULL) || ($poisson['heure2_debut_poisson'] != NULL) && ($poisson['heure2_fin_poisson'] != NULL)){
                         // var_dump($poisson['periode2_debut_poisson']);
                         // var_dump($poisson['periode2_fin_poisson']);
                         // var_dump($poisson['heure2_debut_poisson']);
                         // var_dump($poisson['heure2_fin_poisson']);
                         echo
-                        'Du : '.$poisson['periode2_debut_poisson'].' - '.$poisson['periode2_fin_poisson'].'  <br>
-                        De : '.$poisson['heure2_debut_poisson'].' - '.$poisson['heure2_fin_poisson'].'</p>';
+                        'Du '.$poisson['periode2_debut_poisson'].' au '.$poisson['periode2_fin_poisson'].'  <br>
+                        De '.$poisson['heure2_debut_poisson'].' à '.$poisson['heure2_fin_poisson'].'</p>';
                     }
-                    echo '<button id="valider" class="btn btn-primary">Donner</button></div></div>';
+                    echo '<form action="donner_poisson.php" method="post">';
+                    echo '<input type="hidden" name="id_poisson" id="id_poisson" value="'.$poisson['id_poisson'].'">';
+                    echo '<input type="submit" class="btn btn-primary" id="donner" name="donner" value="Donner"></form></div></div>';
     }
     if (isset($_POST['valider_don'])) {
         try {

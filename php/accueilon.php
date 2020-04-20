@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +13,7 @@
         <h1>Animal Crossing : Your Museum</h1>
     </header>
     <main>
-        <a id=deco href="">Déconnexion</a>
+        <a id=deco href="deconnexion.php">Déconnexion</a>
         <div id=center><a href="../php/fossiles.php">Fossiles</a></div>
         <div id=gd>
         <a id=gauche href="../php/insectes.php">Insectes</a>

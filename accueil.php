@@ -25,7 +25,7 @@
                       </button>
                     </div>
 
-                    <form action="includes/inscription.php" method="post">
+                    <form action="php/inscription.php" method="post">
 
                     <div class="modal-body mx-3">
                       <div class="md-form mb-5">
@@ -67,7 +67,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <form action="includes/connexion.php" method="post">
+                    <form action="php/connexion.php" method="post">
                     <div class="modal-body mx-3">
                       <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>

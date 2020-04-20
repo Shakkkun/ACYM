@@ -7,6 +7,9 @@ header{
     padding-top: 2%;
     background-image:url(../img/background_fossile.jpg);
     height: 1080px;
+/*    background-size: contain;
+    background-size: no-repeat;
+    background-color: #491e65;*/
 }
 body{
     background-color: #491e65;
@@ -68,5 +71,21 @@ padding-left: 5%;
     }
     .card{
         width: 100%;
+    }
+    header{
+    padding-top: 2%;
+    height: 768px;
+    background-size: cover;
+    }
+}
+
+@media screen and (max-width:1366px){
+    header{
+    padding-top: 2%;
+    height: 786px;
+    background-size: cover;
+    }
+    h1{
+        font-size: 56px;
     }
 }
