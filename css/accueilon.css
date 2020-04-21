@@ -3,6 +3,8 @@ body{
     margin: 0px;
     padding: 0px;
     font-family: "Fink_Heavy";
+    height: 1080px;
+    background-size: 100% 100%;
 }
 @font-face{
     font-family: "Fink_Heavy";
@@ -43,38 +45,55 @@ a{
     text-align: center;
     margin-bottom: 2%;
 }
-@media screen and (max-width:1024px){
-    body{
-    margin: 0px;
-    padding: 0px;
-    height: 768px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    }
-    h1{
-        padding-top: 20%;
-    padding-bottom: 20%;
-    font-size: 48px;
-    }
-    a{
-        font-size: 38px;
-        color: black;
-    }
-}
 @media screen and (max-width:1366px){
     body{
-    margin: 0px;
-    padding: 0px;
-    height: 768px;
     background-size: cover;
-    background-repeat: no-repeat;
-
+    height: 768px;
     }
     h1{
-        font-size: 56px;
+    font-size: 52px;
     }
-    a{  
-        font-size: 52px;
-        color: black;
+    a{
+    font-size: 46px;
+    color: black;
+    }
+}
+
+@media screen and (max-width:1024px){
+    body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #8c524e;
+    height: 768px;
+    }
+    h1{
+    font-size: 38px;
+    padding-top: 1%;
+    }
+    a{
+    font-size: 52px;
+    color: black;
+    }
+    #droite{
+    margin-right: 1%;
+    }
+    #gauche{
+    margin-left: 1%;
+    }
+}
+@media screen and (max-width:640px){
+    body{
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #8c524e;
+    }
+    h1{
+    font-size: 30px;
+    }
+    a{
+    font-size: 22px;
+    color: black;
     }
 }

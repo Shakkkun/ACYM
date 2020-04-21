@@ -1,0 +1,95 @@
+body{
+    background-image:url(../img/background.jpg);
+    margin: 0px;
+    padding: 0px;
+    font-family: "Fink_Heavy";
+    height: 1080px;
+    background-size: 100% 100%;
+}
+@font-face{
+    font-family: "Fink_Heavy";
+    src: url(../fonts/finkheavy-webfont.woff) format("woff");
+}
+.centrer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+    font-size: 72px;
+}
+p{
+    font-size: 60px;
+    padding: 0px;
+    margin: 0px;
+}
+.form-control{
+    width: 33%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1366px){
+    body{
+    background-size: cover;
+    height: 768px;
+    }
+    h1{
+    font-size: 52px;
+    }
+}
+@media screen and (max-width:1024px){
+    body{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #8c524e;
+    height: 768px;
+    }
+    h1{
+    font-size: 38px;
+    padding-top: 1%;
+    }
+}
+@media screen and (max-width:640px){
+    body{
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #8c524e;
+    }
+    h1{
+    font-size: 30px;
+    }
+}
