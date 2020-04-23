@@ -29,37 +29,6 @@ p{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width:1366px){
     body{
     background-size: cover;
@@ -67,6 +36,11 @@ p{
     }
     h1{
     font-size: 52px;
+    }
+    p{
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px;
     }
 }
 @media screen and (max-width:1024px){
@@ -81,6 +55,11 @@ p{
     font-size: 38px;
     padding-top: 1%;
     }
+    p{
+    font-size: 27px;
+    padding: 0px;
+    margin: 0px;
+    }
 }
 @media screen and (max-width:640px){
     body{
@@ -90,6 +69,12 @@ p{
     background-color: #8c524e;
     }
     h1{
-    font-size: 30px;
+    font-size: 22px;
+    padding-bottom: 70%;
+    }
+    p{
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
     }
 }

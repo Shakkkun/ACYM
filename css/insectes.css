@@ -51,7 +51,7 @@ article {
    flex-wrap: wrap;
 }
 .card img{
-    width: 100%;
+    width: 50%;
     margin: auto;
 }
 .card-img-top{

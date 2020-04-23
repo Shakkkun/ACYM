@@ -7,11 +7,15 @@
     <title>Animal Crossing : Your Museum</title>
 
 
-<h1> Mot de passe oublié ?</h1>
+<h1> Changement de mot de passe</h1>
 <div class="centrer">
 <form>
-<p>Veuillez rentrez votre mail</p>
+<p>Veuillez rentrer votre mail</p>
 <input type="" class="form-control validate" id="" name="" required>
-<button>Valider</button>
+<p>Veuillez rentrer votre nouveau mot de passe</p>
+<input type="" class="form-control validate" id="" name="" required>
+<p>Veuillez confirmer votre nouveau mot de passe</p>
+<input type="" class="form-control validate" id="" name="" required>
+<input type="submit" id="" name="" value="Valider">
 </form>
 </div>
