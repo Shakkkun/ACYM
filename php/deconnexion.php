@@ -8,6 +8,7 @@ session_destroy();
 setcookie('mail', '');
 setcookie('mdp', '');
 
-echo "Déconnexion réussie !"
+// echo "Déconnexion réussie !"
+header("Location: ../index.php?Deconnexion=ok");
 
 ?>

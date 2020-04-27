@@ -22,4 +22,6 @@ if (!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['mdp']))
 
         $req->execute();
 
+        header("Location: ../index.php?Inscription=ok");
+
 }

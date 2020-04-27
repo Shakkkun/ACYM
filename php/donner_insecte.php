@@ -23,4 +23,6 @@ if (isset($_POST['donner'])) {
 
         $req->execute();
 
+        header("Location: insectes.php?Don=ok");
+
 }

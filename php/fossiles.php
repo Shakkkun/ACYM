@@ -17,6 +17,9 @@
 
     <?php 
     require_once ("../includes/bdd.php");
+
+    // $bdd = new PDO('mysql:host=localhost;dbname=acym;charset=utf8', 'root', '');
+
     echo '<article>';
     foreach($fossiles as $fossile){
         echo '<div class="card">
@@ -25,9 +28,22 @@
                     <h5 class="card-title">'.$fossile['nom_fossile'].'</h5>
                     <p class="card-text"> Prix : '.$fossile['prix_fossile'].' Clochettes</p>
                     <form action="donner_fossile.php" method="post">
-                    <input type="hidden" name="id_fossile" id="id_fossile" value="'.$fossile['id_fossile'].'">
-                    <input type="submit" class="btn btn-primary" id="donner" name="donner" value="Donner"></form></div></div>';
+                    <input type="hidden" name="id_fossile" id="id_fossile" value="'.$fossile['id_fossile'].'">';
+                    
+                    $requeteSQL = "SELECT * FROM joueur_fossile WHERE id_joueur = :id_joueur AND id_fossile = :id_fossile";
+                    $reqprepare = $bdd->prepare($requeteSQL);
+                    $reqprepare->bindValue(":id_joueur", $_SESSION['id_joueur']);
+                    $reqprepare->bindValue(":id_fossile", $fossile['id_fossile']);
+                    $reqprepare->execute();
+
+                    if ($reqprepare->rowCount() == 0) {
+                        echo '<input type="submit" class="btn btn-danger" id="donner" name="donner" value="Donner"></form></div></div>';
+                    } else {
+                        echo '<input type="submit" class="btn btn-danger" id="donner" name="donner" value="Donner" disabled></form></div></div>';
+                    }
+
     }
+
     echo '</article>';
     ?>
 

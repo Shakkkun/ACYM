@@ -23,4 +23,6 @@ if (isset($_POST['donner'])) {
 
         $req->execute();
 
+        header("Location: fossiles.php?Don=ok");
+
 }

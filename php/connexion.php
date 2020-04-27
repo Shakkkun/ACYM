@@ -25,7 +25,7 @@ $mdp_valide = password_verify($_POST['mdp_co'], $resultat['mdp']);
 
 if (!$resultat)
 {
-    echo 'Mauvais mail ou mot de passe';
+    echo 'Identifiants incorrects.';
 }
 else
 {
@@ -36,11 +36,12 @@ else
         $_SESSION['id_joueur'] = $resultat['id_joueur'];
         // $_SESSION['pseudo'] = $pseudo;
 
-        echo 'Connexion réussie !';
+        // echo 'Connexion réussie !';
+        header("Location: accueilon.php?Connexion=ok");
     }
     else
     {
-        echo 'Mauvais mail ou mot de passe';
+        echo 'Identifiants incorrects.';
     }
 }
 }

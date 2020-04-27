@@ -25,21 +25,31 @@
                     <p class="card-text">
                     Prix : '.$poisson['prix_poisson'].' Clochettes <br> 
                     Rareté : '.$poisson['rarete_poisson'].'  <br> 
-                    Lieu : '.$poisson['habitat_poisson'].'  <br> <br>
-                    Du '.$poisson['periode1_debut_poisson'].' au '.$poisson['periode1_fin_poisson'].' <br> 
-                    De '.$poisson['heure1_debut_poisson'].' à '.$poisson['heure1_fin_poisson'].'</p>';
-                    if (($poisson['periode2_debut_poisson'] != NULL) && ($poisson['periode2_fin_poisson'] != NULL) || ($poisson['heure2_debut_poisson'] != NULL) && ($poisson['heure2_fin_poisson'] != NULL)){
-                        // var_dump($poisson['periode2_debut_poisson']);
-                        // var_dump($poisson['periode2_fin_poisson']);
-                        // var_dump($poisson['heure2_debut_poisson']);
-                        // var_dump($poisson['heure2_fin_poisson']);
+                    Lieu : '.$poisson['habitat_poisson'].'  <br>
+                    Taille : '.$poisson['taille_poisson'].'  <br> <br>
+                    De '.$poisson['periode1_debut'].' à '.$poisson['periode1_fin'].' <br> 
+                    De '.$poisson['heure1_debut'].' à '.$poisson['heure1_fin'].' heures</p>';
+
+                    if (($poisson['periode2_debut'] != NULL) && ($poisson['periode2_fin'] != NULL) || ($poisson['heure2_debut'] != NULL) && ($poisson['heure2_fin'] != NULL)){
+
                         echo
-                        'Du '.$poisson['periode2_debut_poisson'].' au '.$poisson['periode2_fin_poisson'].'  <br>
-                        De '.$poisson['heure2_debut_poisson'].' à '.$poisson['heure2_fin_poisson'].'</p>';
+                        'De '.$poisson['periode2_debut'].' à '.$poisson['periode2_fin'].'  <br>
+                        De '.$poisson['heure2_debut'].' à '.$poisson['heure2_fin'].' heures</p>';
                     }
                     echo '<form action="donner_poisson.php" method="post">';
                     echo '<input type="hidden" name="id_poisson" id="id_poisson" value="'.$poisson['id_poisson'].'">';
-                    echo '<input type="submit" class="btn btn-primary" id="donner" name="donner" value="Donner"></form></div></div>';
+                    
+                    $requeteSQL = "SELECT * FROM joueur_poisson WHERE id_joueur = :id_joueur AND id_poisson = :id_poisson";
+                    $reqprepare = $bdd->prepare($requeteSQL);
+                    $reqprepare->bindValue(":id_joueur", $_SESSION['id_joueur']);
+                    $reqprepare->bindValue(":id_poisson", $poisson['id_poisson']);
+                    $reqprepare->execute();
+
+                    if ($reqprepare->rowCount() == 0) {
+                        echo '<input type="submit" class="btn btn-danger" id="donner" name="donner" value="Donner"></form></div></div>';
+                    } else {
+                        echo '<input type="submit" class="btn btn-danger" id="donner" name="donner" value="Donner" disabled></form></div></div>';
+                    }
     }
     if (isset($_POST['valider_don'])) {
         try {
