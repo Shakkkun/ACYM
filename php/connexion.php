@@ -41,7 +41,8 @@ else
     }
     else
     {
-        echo 'Identifiants incorrects.';
+        // echo 'Identifiants incorrects.';
+        header("Location: ../index.php?Erreur=IdentifiantsIncorrects");
     }
 }
 }
